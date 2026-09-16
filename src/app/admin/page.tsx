@@ -17,6 +17,7 @@ import {
 import { RealProductsAdmin } from "@/components/admin/RealProductsAdmin";
 import InsightsPanel from "@/components/admin/InsightsPanel";
 import BlogAdmin from "@/components/admin/BlogAdmin";
+import JobsAdmin from "@/components/admin/JobsAdmin";
 
 type Project = {
   id: string;
@@ -100,6 +101,7 @@ type Tab =
   | "projects"
   | "products"
   | "customers"
+  | "jobs"
   | "pricing"
   | "settings"
   | "profile";
@@ -506,6 +508,7 @@ export default function AdminPage() {
     ["requests", "Enquiries"],
     ["products", "Products"],
     ["customers", "Customers"],
+    ["jobs", "Jobs"],
     ["settings", "Site settings"],
     ["profile", "Admin profile"],
   ];
@@ -550,6 +553,7 @@ export default function AdminPage() {
         )}
         {tab === "insights" && <InsightsPanel />}
         {tab === "blog" && <BlogAdmin />}
+        {tab === "jobs" && <JobsAdmin />}
         {tab === "overview" && (
           <section className="mt-8">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -44,10 +44,11 @@ export const QUICK_LINKS = [
   { label: "Templates", href: "/template" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Process", href: "/#process" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 
-export const RESOURCE_LINKS = [{ label: "Blog", url: "/blog" }] as const;
+export const RESOURCE_LINKS = [{ label: "Blog", url: "/blog" }, { label: "Careers", url: "/careers" }] as const;
 
 export interface ExternalLink {
   label: string;

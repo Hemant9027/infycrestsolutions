@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { whatsappUrl } from "@/config/site";
 
 const STATS = [
-  { value: "120+", label: "Projects" },
+  { value: "50+", label: "Projects Delivered" },
   { value: "24h", label: "Response" },
   { value: "India-wide", label: "" },
   { value: "Custom", label: "Solutions" },
