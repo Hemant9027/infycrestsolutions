@@ -32,8 +32,16 @@ export interface Product {
 
 export const products = () => mongoDb.collection<Product>("products");
 
+let productIndexesPromise: Promise<string> | undefined;
+
+export function ensureProductIndexes() {
+  productIndexesPromise ??= products().createIndex({ displayOrder: 1, createdAt: 1 });
+  return productIndexesPromise;
+}
+
 const getCachedProducts = unstable_cache(
   async (projectType?: ProductProjectType) => {
+  await ensureProductIndexes();
   const collection = products();
   const filter: Filter<Product> = projectType
     ? projectType === "real-world"
@@ -62,7 +70,7 @@ const getCachedProducts = unstable_cache(
         displayOrder: 1,
       },
     })
-    .sort({ displayOrder: 1 })
+    .sort({ displayOrder: 1, createdAt: 1 })
       .toArray();
   },
   ["products-listing"],
@@ -108,6 +116,7 @@ export async function deleteProduct(id: string) {
 }
 
 export async function getAllProductsAdmin() {
+  await ensureProductIndexes();
   const collection = products();
-  return collection.find({}).sort({ displayOrder: 1 }).toArray();
+  return collection.find({}).sort({ displayOrder: 1, createdAt: 1 }).toArray();
 }

@@ -39,13 +39,14 @@ export default function BusinessOutcomes() {
           <Reveal>
             <Eyebrow>03 / Business Outcomes</Eyebrow>
             <h2 className="mt-5 max-w-3xl text-balance text-[clamp(2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-neutral-900">
-              More than a website.
+              Clearer growth. Smoother operations.
             </h2>
           </Reveal>
           <Reveal delay={140}>
             <p className="max-w-md text-[15.5px] leading-relaxed text-neutral-500 lg:ml-auto">
-              The technology matters, but the reason for building it matters
-              more. We start with the business outcome.
+              The right digital product does more than look good. It reduces
+              friction, supports the sales process and helps the business run
+              more efficiently.
             </p>
           </Reveal>
         </div>

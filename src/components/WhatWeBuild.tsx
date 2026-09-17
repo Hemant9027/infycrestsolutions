@@ -60,13 +60,14 @@ export default function WhatWeBuild() {
           <Reveal>
             <Eyebrow>02 / What We Build</Eyebrow>
             <h2 className="mt-5 max-w-3xl text-balance text-[clamp(2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-neutral-900">
-              Digital products with a job to do.
+              Digital systems built around real business goals.
             </h2>
           </Reveal>
           <Reveal delay={140}>
             <p className="max-w-md text-[15.5px] leading-relaxed text-neutral-500 lg:ml-auto">
-              Start with a focused website or bring us a workflow that needs to
-              become clearer, faster and easier to run.
+              Whether you need a stronger website, a booking flow, custom
+              software or automation, we design around the outcome your business
+              actually needs.
             </p>
           </Reveal>
         </div>

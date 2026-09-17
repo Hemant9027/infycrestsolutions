@@ -40,14 +40,13 @@ export default function WhyInfyCrest() {
           <Reveal>
             <Eyebrow>07 / Why InfyCrest</Eyebrow>
             <h2 className="mt-5 max-w-2xl text-balance text-[clamp(2rem,4.6vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-neutral-900">
-              Built around your{" "}
-              <em className="font-display font-normal italic">business.</em>
+              Built for business outcomes, not just design.
             </h2>
           </Reveal>
           <Reveal delay={140}>
             <p className="max-w-md text-[15.5px] leading-relaxed text-neutral-500 lg:ml-auto">
-              The right digital product is more than a polished interface. It
-              should make the work clearer, faster and easier to grow.
+              We start with how your business works, then choose the right
+              technology to make the process clearer, faster and easier to grow.
             </p>
           </Reveal>
         </div>

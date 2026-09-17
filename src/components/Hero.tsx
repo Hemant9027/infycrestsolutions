@@ -59,17 +59,18 @@ function Hero() {
 
         <Reveal delay={120}>
           <h1 className="mt-8 max-w-5xl text-[clamp(2.7rem,7vw,6.1rem)] font-semibold leading-[1.01] tracking-[-0.042em] text-neutral-900">
-            <span className="block">Websites &amp; software</span>
+            <span className="block">We build the digital systems</span>
             <span className="hero-script block">
-              built to grow your business.
+              your business needs to grow.
             </span>
           </h1>
         </Reveal>
 
         <Reveal delay={240}>
           <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-neutral-500 sm:text-lg">
-            High-performance websites, e-commerce experiences, custom software
-            and business automation designed around the way your business works.
+            From websites and booking flows to software, automation and internal
+            operations, we turn business needs into faster paths to enquiries,
+            orders and better customer experiences.
           </p>
         </Reveal>
 

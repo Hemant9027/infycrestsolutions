@@ -47,16 +47,21 @@ export function RealProductsAdmin() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [loadError, setLoadError] = useState("");
 
   async function loadProducts() {
     try {
       const response = await fetch("/api/admin/products");
-      if (response.ok) {
-        const data = await response.json();
-        setProducts(data);
+      if (!response.ok) {
+        const error = await response.json().catch(() => null);
+        throw new Error(error?.error || `Could not load products (${response.status})`);
       }
+      const data = await response.json();
+      setProducts(data);
+      setLoadError("");
     } catch (error) {
       console.error("Error loading products:", error);
+      setLoadError(error instanceof Error ? error.message : "Could not load products");
     }
   }
 
@@ -425,7 +430,9 @@ export function RealProductsAdmin() {
           Products ({products.length})
         </h2>
         <div className="mt-6 max-h-96 space-y-3 overflow-y-auto">
-          {products.length === 0 ? (
+          {loadError ? (
+            <p className="text-sm text-red-600">{loadError}</p>
+          ) : products.length === 0 ? (
             <p className="text-sm text-neutral-500">No products yet</p>
           ) : (
             products.map((prod) => (

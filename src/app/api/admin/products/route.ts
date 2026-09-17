@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 import { currentAdmin } from "@/lib/admin/auth";
-import { products } from "@/lib/products";
+import { ensureProductIndexes, products } from "@/lib/products";
 
 function text(value: unknown, max: number) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
@@ -9,8 +9,12 @@ function text(value: unknown, max: number) {
 
 export async function GET() {
   if (!(await currentAdmin())) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  await ensureProductIndexes();
   const collection = products();
-  const allProducts = await collection.find({}).sort({ displayOrder: 1 }).toArray();
+  const allProducts = await collection
+    .find({}, { projection: { imageUrl: 0 } })
+    .sort({ displayOrder: 1, createdAt: 1 })
+    .toArray();
   return NextResponse.json(allProducts);
 }
 
