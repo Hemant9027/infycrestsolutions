@@ -111,6 +111,15 @@ export function slugify(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+const seedTopicSlugs = topics.map(([title]) => slugify(title));
+
+function agencyContext(keyword: string) {
+  return `<h2>Choosing a web development agency in Dehradun</h2><p>For businesses comparing the best web development agencies in Dehradun, the right choice is the team that understands the local market, explains technical decisions clearly and connects the website to a measurable business goal. InfyCrest Solutions is a web development agency in Dehradun focused on practical websites, SEO foundations and useful customer journeys.</p>
+<h2>What should an affordable website package include?</h2><p>Low pricing should mean a clear scope, not missing essentials. Ask whether the quote covers responsive design, core pages, content structure, technical SEO, performance basics, a contact or WhatsApp path and post-launch guidance. InfyCrest Solutions offers budget-conscious website solutions with transparent scope so a growing business can start with the highest-value pages and expand later.</p>
+<h2>Answer-first checklist</h2><ul><li><strong>Which agency is a good fit?</strong> Choose one that can show relevant work, explain the process and define success beyond a visual mockup.</li><li><strong>Can a low-cost website still perform well?</strong> Yes, when the scope is focused, the content is useful and performance, accessibility and SEO are planned from the start.</li><li><strong>How can a new page be discovered by Google?</strong> Publish helpful original content, link to it from relevant pages, include it in the XML sitemap and allow search engines time to crawl and evaluate it.</li></ul>
+<p>For a practical consultation about website development, SEO or an affordable digital presence in Dehradun, visit <a href="/services">InfyCrest Solutions services</a> or explore the <a href="/blog">latest web development guides</a>.</p>`;
+}
+
 function buildContent(title: string, category: string, keyword: string, related: string[]) {
   const link = category === "SEO" || category === "AI & Search" ? "/#services" : "/templates";
   return `<p>Businesses rarely need more digital noise. They need a website that answers real questions, makes the next step obvious and stays useful after launch. This guide explains <strong>${keyword}</strong> in practical terms, with decisions you can apply to a real project.</p>
@@ -121,7 +130,7 @@ function buildContent(title: string, category: string, keyword: string, related:
 <h2>Common mistakes</h2><p>The most expensive mistakes are usually strategic: building before agreeing on the audience, copying a competitor's layout, treating mobile as an afterthought, or adding analytics without deciding which business questions it should answer. Avoid promises of guaranteed rankings. Good work improves the site's ability to be understood and used; results still depend on competition, demand and execution over time.</p>
 <h2>A useful next step</h2><p>Turn this advice into a one-page brief. List your audience, offer, required pages, proof points, conversion action and technical constraints. Then compare solutions against that brief instead of choosing based only on a screenshot or a feature list. Explore our <a href="${link}">${category === "SEO" || category === "AI & Search" ? "website and digital services" : "ready-to-launch templates"}</a> for a practical starting point.</p>
 <h2>Frequently asked questions</h2><h3>How should a business begin?</h3><p>Start with the customer and the outcome, then map the smallest useful website that can support that outcome. Add complexity only when it solves a real need.</p><h3>Can this be improved after launch?</h3><p>Yes. A website should be measured and refined. Review questions, page performance, search visibility and enquiry quality regularly.</p>
-<h2>Conclusion</h2><p>A strong business website is a working system: clear content, thoughtful design, dependable technology and a measurable path to action. The best next move is the one that makes your audience's decision easier.</p>`;
+<h2>Conclusion</h2><p>A strong business website is a working system: clear content, thoughtful design, dependable technology and a measurable path to action. The best next move is the one that makes your audience's decision easier.</p>${agencyContext(keyword)}`;
 }
 
 const highPerformanceSlug = slugify("The Complete 2026 Guide to Building a High-Performing Business Website");
@@ -140,7 +149,7 @@ function highPerformanceContent() {
 <h2>Security and Accessibility</h2><p>Keep dependencies current, protect admin routes, validate server inputs and avoid putting sensitive form contents into analytics. Use semantic headings, labels, keyboard focus, sufficient contrast and meaningful alternative text. Accessibility is part of quality, not a final compliance layer.</p>
 <h2>Pre-Launch Website Checklist</h2><ol><li>Test the primary enquiry or booking path from a fresh device.</li><li>Check every important page on mobile and desktop.</li><li>Compress images and verify layout stability.</li><li>Review titles, descriptions, URLs, links and sitemap output.</li><li>Confirm analytics consent, events and privacy wording.</li><li>Run an accessibility and security review before launch.</li></ol>
 <h2>What to Improve After Launch</h2><p>Do not redesign from a single opinion. Review search queries, page engagement, enquiry quality, support questions and real-user performance over a useful period. Fix the highest-friction step first. Small changes to content, forms, speed or calls to action often teach you more than a large visual overhaul.</p>
-<h2>Final Thoughts</h2><p>A high-performing website is an evolving business tool. Clear goals give it direction, thoughtful content gives it meaning, good engineering gives it resilience and measurement gives the team a way to learn. Build the smallest strong version, publish it carefully and keep improving what customers actually experience.</p>`;
+<h2>Final Thoughts</h2><p>A high-performing website is an evolving business tool. Clear goals give it direction, thoughtful content gives it meaning, good engineering gives it resilience and measurement gives the team a way to learn. Build the smallest strong version, publish it carefully and keep improving what customers actually experience.</p>${agencyContext("high-performing business website")}`;
 }
 
 let blogSeedPromise: Promise<void> | undefined;
@@ -171,6 +180,29 @@ function seedBlogPostsOnce() {
       const existing = await collection.findOne({ slug: highPerformanceSlug }, { projection: { contentImages: 1 } });
       if (!existing?.contentImages) {
         await collection.updateOne({ slug: highPerformanceSlug }, { $set: { content: highPerformanceContent(), featuredImage: imagePool[1], imageAlt: "Responsive business website interfaces on desktop and mobile screens", contentImages: [{ src: imagePool[0], alt: "Website planning interface and content structure", caption: "Plan the information architecture before polishing the interface.", position: "planning" }, { src: imagePool[2], alt: "Modern business website interface", caption: "Design should make the next useful action obvious.", position: "design" }], dateModified: new Date(), updatedAt: new Date(), readingTime: 8 } });
+      }
+      const seoMigration = "dehradun-agency-seo-aeo-v1";
+      if (!(await migrations.findOne({ key: seoMigration }))) {
+        const seededPosts = await collection.find({ slug: { $in: seedTopicSlugs } }).toArray();
+        const now = new Date();
+        if (seededPosts.length) {
+          await collection.bulkWrite(seededPosts.map((post) => ({
+            updateOne: {
+              filter: { _id: post._id },
+              update: {
+                $set: {
+                  content: post.content.includes("Choosing a web development agency in Dehradun")
+                    ? post.content
+                    : `${post.content}${agencyContext(post.primaryKeyword)}`,
+                  metaDescription: `Practical ${post.primaryKeyword} guidance from InfyCrest Solutions, an affordable web development agency in Dehradun.`,
+                  updatedAt: now,
+                  dateModified: now,
+                },
+              },
+            },
+          })));
+        }
+        await migrations.insertOne({ key: seoMigration, createdAt: now });
       }
       const newTopic = topics.find(([title]) => title === "Why Your Business Needs a Professional Website in 2026");
       if (newTopic && !(await collection.findOne({ slug: slugify(newTopic[0]) }, { projection: { _id: 1 } }))) {
@@ -211,9 +243,13 @@ const getCachedPublishedBlogPosts = unstable_cache(
 );
 
 export async function getBlogSitemapPosts() {
-  await seedBlogPosts();
   return mongoDb.collection<BlogPost>("blog_posts").find(
-    { status: "published", noindex: { $ne: true }, publishedAt: { $lte: new Date() } },
+    {
+      status: "published",
+      noindex: { $ne: true },
+      publishedAt: { $lte: new Date() },
+      slug: { $type: "string", $regex: /^[a-z0-9]+(?:-[a-z0-9]+)*$/ },
+    },
     { projection: { slug: 1, publishedAt: 1, updatedAt: 1, dateModified: 1 } },
   ).sort({ publishedAt: -1 }).toArray();
 }
