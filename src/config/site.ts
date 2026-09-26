@@ -13,8 +13,11 @@ export const SITE = {
   title: "InfyCrest Solutions — Websites, Software & Digital Solutions",
   description:
     "InfyCrest Solutions builds high-performance websites, e-commerce experiences, custom software and business automation for growing businesses.",
-  email: "hemant@infycrestsolutions.com",
-  emailHref: "mailto:hemant@infycrestsolutions.com",
+  email: "contact@infycrestsolutions.com",
+  emailHref: "mailto:contact@infycrestsolutions.com",
+  careersEmail: "careers@infycrestsolutions.com",
+  careersEmailHref: "mailto:careers@infycrestsolutions.com",
+  hrEmail: "hr@infycrestsolutions.com",
   phoneDisplay: "+91 9027152962",
   phoneHref: "tel:+919027152962",
   whatsappNumber: "919027152962",

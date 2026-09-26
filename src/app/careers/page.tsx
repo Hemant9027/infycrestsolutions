@@ -72,7 +72,7 @@ export default async function CareersPage() {
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
-                  href="mailto:hemant@infycrestsolutions.com?subject=Career%20Application"
+                  href={`${SITE.careersEmailHref}?subject=Career%20Application`}
                   className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-black"
                 >
                   Apply now
@@ -177,7 +177,7 @@ export default async function CareersPage() {
                       {job.description}
                     </p>
                     <a
-                      href="mailto:hemant@infycrestsolutions.com?subject=Career%20Application"
+                      href={`${SITE.careersEmailHref}?subject=Career%20Application`}
                       className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-neutral-300"
                     >
                       Apply now
@@ -229,7 +229,7 @@ export default async function CareersPage() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
-                href={`mailto:${SITE.email}?subject=Career%20Application`}
+                href={`${SITE.careersEmailHref}?subject=Career%20Application`}
                 className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-black"
               >
                 Send your profile

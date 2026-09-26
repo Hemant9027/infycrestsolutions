@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { currentAdmin } from "@/lib/admin/auth";
 import { mongoDb } from "@/lib/mongodb";
 
-const defaults = { phoneDisplay: "+91 9027152962", phoneHref: "tel:+919027152962", email: "hemant@infycrestsolutions.com", whatsappNumber: "919027152962", facebook: "", instagram: "", youtube: "" };
+const defaults = { phoneDisplay: "+91 9027152962", phoneHref: "tel:+919027152962", email: "contact@infycrestsolutions.com", whatsappNumber: "919027152962", facebook: "", instagram: "", youtube: "" };
 export async function GET() {
   if (!await currentAdmin()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const saved = await mongoDb.collection("site_settings").findOne({ key: "main" });
