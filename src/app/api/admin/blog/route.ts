@@ -3,7 +3,7 @@ import { revalidateTag } from "next/cache";
 import { ObjectId } from "mongodb";
 import { currentAdmin } from "@/lib/admin/auth";
 import { mongoDb } from "@/lib/mongodb";
-import { seedBlogPosts, slugify, type BlogPost, type BlogStatus } from "@/lib/blog";
+import { slugify, type BlogPost, type BlogStatus } from "@/lib/blog";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,7 +12,6 @@ const statuses = new Set<BlogStatus>(["draft", "published", "scheduled"]);
 
 export async function GET() {
   if (!(await currentAdmin())) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  await seedBlogPosts();
   const posts = await mongoDb.collection<BlogPost>("blog_posts").find({}).sort({ updatedAt: -1 }).toArray();
   return NextResponse.json(posts.map(({ _id, ...post }) => ({ ...post, id: String(_id) })));
 }

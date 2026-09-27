@@ -228,7 +228,6 @@ function seedBlogPostsOnce() {
 }
 
 export async function getPublishedBlogPosts() {
-  await seedBlogPosts();
   const posts = await getCachedPublishedBlogPosts();
   return posts.map(normalizeBlogPost);
 }
@@ -255,7 +254,6 @@ export async function getBlogSitemapPosts() {
 }
 
 export async function getBlogPost(slug: string) {
-  await seedBlogPosts();
   const post = await getCachedBlogPost(slug);
   return post ? normalizeBlogPost(post) : null;
 }

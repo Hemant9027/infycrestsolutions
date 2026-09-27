@@ -75,10 +75,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ["/services", 0.8],
     ["/contact", 0.8],
     ["/careers", 0.5],
+    ["/pricing", 0.7],
     ["/demo", 0.8],
     ["/blog", 0.8],
     ["/cookie-policy", 0.3],
-    ["/sitemap", 0.3],
   ] as const) {
     addUrl(entries, path, {
       lastModified: now,
