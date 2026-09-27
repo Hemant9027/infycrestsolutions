@@ -19,7 +19,7 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         <span className="text-[2.1rem] font-semibold leading-none tracking-[-0.03em] text-neutral-900">
           {plan.price}
         </span>
-        <span className="text-[12px] text-neutral-400">/ project</span>
+        <span className="text-[12px] text-neutral-600">/ project</span>
       </div>
       <p className="mt-3 min-h-11 text-[13.5px] leading-relaxed text-neutral-500">
         {plan.description}
@@ -146,7 +146,7 @@ export default function Pricing() {
         </div>
 
         <Reveal delay={140}>
-          <p className="mt-8 text-center text-[13px] text-neutral-400">
+          <p className="mt-8 text-center text-[13px] text-neutral-600">
             All projects include an initial consultation, clear milestones,
             professional communication, and transparent scope.
           </p>

@@ -56,7 +56,7 @@ export default function WhyInfyCrest() {
             <Reveal key={reason.number} delay={index * 100}>
               <article className="h-full border-t border-neutral-200 pt-6 transition-transform duration-500 hover:-translate-y-1">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-400">
+                  <span className="font-mono text-[11px] tracking-[0.2em] text-neutral-600">
                     {reason.number}
                   </span>
                   <reason.icon

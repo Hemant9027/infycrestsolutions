@@ -76,6 +76,7 @@ export default function ContactForm() {
           </label>
           <input
             id="contact-name"
+            name="name"
             required
             value={form.name}
             onChange={(event) => setForm({ ...form, name: event.target.value })}
@@ -88,13 +89,14 @@ export default function ContactForm() {
           </label>
           <input
             id="contact-contact"
+            name="contact"
             required
             value={form.contact}
             onChange={(event) =>
               setForm({ ...form, contact: event.target.value })
             }
             placeholder="Email or WhatsApp number"
-            autoComplete="email tel"
+            autoComplete="email"
             className="w-full rounded-xl border border-neutral-200 bg-white px-4 py-3.5 text-sm text-neutral-900 outline-none transition-colors placeholder:text-neutral-400 focus:border-neutral-900"
           />
         </div>
@@ -103,6 +105,7 @@ export default function ContactForm() {
         </label>
         <input
           id="contact-business"
+          name="organization"
           value={form.businessType}
           onChange={(event) =>
             setForm({ ...form, businessType: event.target.value })
@@ -115,6 +118,7 @@ export default function ContactForm() {
         </label>
         <textarea
           id="contact-requirements"
+          name="requirements"
           rows={3}
           value={form.requirements}
           onChange={(event) =>

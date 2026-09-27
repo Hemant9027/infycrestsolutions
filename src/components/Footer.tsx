@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-600">
+            <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-400">
               Resources
             </p>
             <ul className="mt-5 space-y-3">
@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-600">
+            <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-400">
               Explore
             </p>
             <ul className="mt-5 space-y-3">
@@ -93,7 +93,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-600">
+            <p className="font-mono text-[10.5px] font-medium uppercase tracking-[0.24em] text-neutral-400">
               Contact
             </p>
             <ul className="mt-5 space-y-3.5 text-sm">
@@ -127,7 +127,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <p className="mt-5 text-xs text-neutral-600">
+            <p className="mt-5 text-xs text-neutral-400">
               Mon-Sat - 10:00-20:00 IST - Remote-first, across India
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function Footer() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-5 sm:justify-end">
             <CookieSettingsButton />
-            <p className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-neutral-600">
+            <p className="font-mono text-[10.5px] uppercase tracking-[0.24em] text-neutral-400">
               Websites - Automation - SaaS
             </p>
           </div>

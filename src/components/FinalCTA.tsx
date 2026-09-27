@@ -16,7 +16,7 @@ export default function FinalCTA() {
             />
 
             <div className="relative mx-auto max-w-2xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-neutral-400 sm:text-xs">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-neutral-600 sm:text-xs">
                 Let&apos;s talk / 2026
               </p>
               <h2 className="mt-5 text-[clamp(2.1rem,5.2vw,3.6rem)] font-semibold leading-[1.05] tracking-[-0.035em] text-neutral-900">
@@ -31,7 +31,7 @@ export default function FinalCTA() {
                 <ContactForm />
               </div>
 
-              <div className="mt-8 flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-400">
+              <div className="mt-8 flex items-center gap-4 text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-600">
                 <span
                   aria-hidden="true"
                   className="h-px flex-1 bg-neutral-200"

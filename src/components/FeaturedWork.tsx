@@ -69,7 +69,7 @@ export default function FeaturedWork() {
               and your goals — starting concepts you can touch before you
               commit.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-[13px] font-medium text-neutral-400 lg:justify-end">
+            <div className="mt-4 flex items-center gap-2 text-[13px] font-medium text-neutral-600 lg:justify-end">
               <span className="rounded-full border border-neutral-200 px-3 py-1">
                 Landing Page
               </span>
@@ -105,7 +105,7 @@ export default function FeaturedWork() {
                   </div>
                 </a>
                 <div className="mt-4 flex items-center justify-between px-1">
-                  <span className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-neutral-400">
+                  <span className="font-mono text-[10.5px] uppercase tracking-[0.22em] text-neutral-600">
                     {String(i + 1).padStart(2, "0")} — {item.caption}
                   </span>
                   <ArrowUpRight className="size-4 text-neutral-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-neutral-900" />

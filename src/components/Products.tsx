@@ -153,7 +153,6 @@ export default function Products({
                         src={product.thumbnail}
                         alt={`${product.name} template preview`}
                         fill
-                        priority={index === 0}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
                       />
@@ -179,6 +178,7 @@ export default function Products({
                       <div className="mt-auto flex items-center gap-2.5 pt-6">
                         <Link
                           href={`/products/${product.slug}`}
+                          aria-label={`View ${product.name} details`}
                           className="flex h-10 flex-1 items-center justify-center rounded-full border border-neutral-300 text-[13.5px] font-semibold text-neutral-700 transition-all hover:border-neutral-900 hover:text-neutral-900"
                         >
                           Details

@@ -28,7 +28,7 @@ export default function Logo({
       <span className="text-[15px] font-semibold tracking-tight text-neutral-900">
         InfyCrest
         {showSuffix && (
-          <span className="font-medium text-neutral-400"> Solutions</span>
+          <span className="font-medium text-neutral-600"> Solutions</span>
         )}
       </span>
     </span>

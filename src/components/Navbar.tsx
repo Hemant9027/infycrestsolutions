@@ -179,7 +179,7 @@ export default function Navbar() {
                   <span className="text-[26px] font-semibold tracking-tight text-neutral-900 transition-transform duration-300 group-hover:translate-x-1">
                     {link.label}
                   </span>
-                  <span className="font-mono text-xs text-neutral-300">
+                  <span className="font-mono text-xs text-neutral-600">
                     0{index + 1}
                   </span>
                 </Link>
@@ -232,7 +232,7 @@ export default function Navbar() {
                 <ArrowUpRight className="size-4" strokeWidth={2.2} />
               </a>
             </div>
-            <p className="pt-2 text-center text-xs text-neutral-400">
+            <p className="pt-2 text-center text-xs text-neutral-600">
               {SITE.email} · {SITE.phoneDisplay}
             </p>
           </div>

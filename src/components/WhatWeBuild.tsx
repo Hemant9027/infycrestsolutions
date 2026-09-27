@@ -84,7 +84,7 @@ export default function WhatWeBuild() {
                   <span className="grid size-11 place-items-center rounded-2xl border border-neutral-200 bg-neutral-50 text-neutral-900 transition-transform duration-300 group-hover:-translate-y-1">
                     <service.icon className="size-5" strokeWidth={1.7} />
                   </span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-neutral-300">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-neutral-600">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>

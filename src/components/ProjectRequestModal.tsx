@@ -276,6 +276,7 @@ export default function ProjectRequestModal({
                 </label>
                 <input
                   id="request-name"
+                  name="name"
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -294,6 +295,7 @@ export default function ProjectRequestModal({
                 </label>
                 <input
                   id="request-contact"
+                  name="email"
                   type="text"
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
@@ -314,6 +316,7 @@ export default function ProjectRequestModal({
               </label>
               <select
                 id="request-business"
+                name="organization-title"
                 value={businessType}
                 onChange={(e) => setBusinessType(e.target.value)}
                 className={cn(inputClass, !businessType && "text-neutral-400")}
@@ -336,6 +339,7 @@ export default function ProjectRequestModal({
               </label>
               <textarea
                 id="request-requirements"
+                name="requirements"
                 value={requirements}
                 onChange={(e) => setRequirements(e.target.value)}
                 placeholder="Pages, features, content you already have, timelines — anything that helps."

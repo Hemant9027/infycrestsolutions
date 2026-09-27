@@ -58,7 +58,7 @@ export default function BusinessOutcomes() {
                   <span className="grid size-12 place-items-center rounded-2xl bg-neutral-950 text-white">
                     <outcome.icon className="size-5" strokeWidth={1.7} />
                   </span>
-                  <span className="font-mono text-[10px] tracking-[0.2em] text-neutral-300">
+                  <span className="font-mono text-[10px] tracking-[0.2em] text-neutral-600">
                     0{index + 1}
                   </span>
                 </div>

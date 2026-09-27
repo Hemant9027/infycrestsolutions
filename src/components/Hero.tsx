@@ -107,7 +107,7 @@ function Hero() {
                 <span className="font-display text-2xl tracking-tight text-neutral-900 transition-transform duration-500 group-hover:-translate-y-0.5 sm:text-3xl">
                   {stat.value}
                 </span>
-                <span className="text-[13px] text-neutral-400 sm:text-sm">
+                <span className="text-[13px] text-neutral-500 sm:text-sm">
                   {stat.label}
                 </span>
               </div>
