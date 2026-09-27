@@ -110,7 +110,7 @@ export default function BlogList({ posts }: { posts: BlogPost[] }) {
                   href={`/blog/${post.slug}`}
                   className="group overflow-hidden rounded-2xl border border-neutral-200 bg-white"
                 >
-                  <div className="relative aspect-[16/10] bg-neutral-100">
+                  <div className="relative aspect-16/10 bg-neutral-100">
                     <Image
                       src={post.featuredImage}
                       alt={post.imageAlt}

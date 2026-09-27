@@ -118,8 +118,7 @@ export default function Navbar() {
               Product
             </Link>
             <Link
-              href="/#contact"
-              onClick={(e) => handleAnchorClick(e, "/#contact")}
+              href="/contact"
               className="hidden items-center gap-1.5 rounded-full bg-neutral-900 px-4.5 py-2.5 text-[13.5px] font-medium text-white transition-all hover:bg-black hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] sm:inline-flex"
             >
               Let&apos;s Build
@@ -198,18 +197,15 @@ export default function Navbar() {
             )}
           >
             <Link
-              href="/templates"
+              href="/products"
               onClick={() => setOpen(false)}
               tabIndex={open ? 0 : -1}
               className="flex w-full items-center justify-center gap-2 rounded-full border border-neutral-900 px-6 py-4 text-[15px] font-medium text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white"
             >
-              Templates
+              Product
             </Link>
             <Link
-              href="/#contact"
-              onClick={(e) => {
-                handleAnchorClick(e, "/#contact");
-              }}
+              href="/contact"
               tabIndex={open ? 0 : -1}
               className="flex w-full items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-4 text-[15px] font-medium text-white transition-colors hover:bg-black"
             >

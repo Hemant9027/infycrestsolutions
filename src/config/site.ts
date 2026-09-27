@@ -20,7 +20,7 @@ export const SITE = {
   hrEmail: "hr@infycrestsolutions.com",
   phoneDisplay: "+91 9027152962",
   phoneHref: "tel:+919027152962",
-  whatsappNumber: "919027152962",
+  whatsappNumber: "918272820892",
   defaultWhatsAppMessage:
     "Hi InfyCrest Solutions, I'm interested in building a website.",
 } as const;
@@ -40,7 +40,7 @@ export const NAV_LINKS = [
   { label: "Our Work", href: "/#demos" },
   { label: "Templates", href: "/templates" },
   { label: "Process", href: "/#process" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const QUICK_LINKS = [
@@ -48,7 +48,7 @@ export const QUICK_LINKS = [
   { label: "Pricing", href: "/#pricing" },
   { label: "Process", href: "/#process" },
   { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const RESOURCE_LINKS = [{ label: "Blog", url: "/blog" }, { label: "Careers", url: "/careers" }] as const;

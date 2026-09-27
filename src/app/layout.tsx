@@ -7,6 +7,7 @@ import CookieConsent from "@/components/CookieConsent";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import ProductRouteScrollReset from "@/components/ProductRouteScrollReset";
 import NavigationProgress from "@/components/NavigationProgress";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import "./globals.css";
 
 const inter = Inter({
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ProductRouteScrollReset />
         <AnalyticsTracker />
         {children}
+        <WhatsAppFloat />
         <CookieConsent />
         <Analytics />
       </body>

@@ -54,14 +54,18 @@ export function RealProductsAdmin() {
       const response = await fetch("/api/admin/products");
       if (!response.ok) {
         const error = await response.json().catch(() => null);
-        throw new Error(error?.error || `Could not load products (${response.status})`);
+        throw new Error(
+          error?.error || `Could not load products (${response.status})`,
+        );
       }
       const data = await response.json();
       setProducts(data);
       setLoadError("");
     } catch (error) {
       console.error("Error loading products:", error);
-      setLoadError(error instanceof Error ? error.message : "Could not load products");
+      setLoadError(
+        error instanceof Error ? error.message : "Could not load products",
+      );
     }
   }
 

@@ -39,7 +39,7 @@ function Hero() {
         LaunchKit — Live demo ready
       </FloatChip>
       <FloatChip className="right-[5%] top-[30%]" rotate={5} slow>
-        Landing pages ₹999
+        Landing pages $999
       </FloatChip>
       <FloatChip className="bottom-[24%] left-[10%]" rotate={4} slow>
         Admin panel included
