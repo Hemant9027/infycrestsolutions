@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, Mail, MessageCircle, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/NewsletterForm";
@@ -86,6 +86,32 @@ export default function ContactPage() {
                   </span>
                   <ArrowUpRight className="ml-auto size-4 opacity-50 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
+                <div className="group flex items-start gap-3 text-neutral-700">
+                  <span className="grid size-9 place-items-center rounded-full border border-neutral-200 bg-white text-neutral-700">
+                    <MapPin className="size-4" />
+                  </span>
+                  <span>
+                    <span className="block font-semibold text-neutral-900">
+                      India Office
+                    </span>
+                    <span className="text-neutral-500 whitespace-pre-line">
+                      {SITE.indiaOfficeAddress}
+                    </span>
+                  </span>
+                </div>
+                <div className="group flex items-start gap-3 text-neutral-700">
+                  <span className="grid size-9 place-items-center rounded-full border border-neutral-200 bg-white text-neutral-700">
+                    <MapPin className="size-4" />
+                  </span>
+                  <span>
+                    <span className="block font-semibold text-neutral-900">
+                      USA Office
+                    </span>
+                    <span className="text-neutral-500 whitespace-pre-line">
+                      {SITE.usaOfficeAddress}
+                    </span>
+                  </span>
+                </div>
               </div>
             </div>
 

@@ -1,4 +1,5 @@
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
@@ -14,6 +15,22 @@ const SOCIAL_URLS: Record<string, string> = {
   Facebook: "https://facebook.com/infycrestsolutions",
   Instagram: "https://instagram.com/infycrestsolutions",
   YouTube: "https://youtube.com/@infycrestsolutions",
+};
+
+const SOCIAL_ICONS: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
+  Facebook: FaFacebookF,
+  Instagram: FaInstagram,
+  YouTube: FaYoutube,
+};
+
+const SOCIAL_HOVER_STYLES: Record<string, string> = {
+  Facebook: "hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white",
+  Instagram:
+    "hover:border-[#E1306C] hover:bg-gradient-to-br hover:from-[#feda75] hover:via-[#d62976] hover:to-[#4f5bd5] hover:text-white",
+  YouTube: "hover:border-[#FF0000] hover:bg-[#FF0000] hover:text-white",
 };
 
 function FooterLink({
@@ -51,18 +68,26 @@ export default function Footer() {
               look exceptional, built fast and launched with care.
             </p>
             <div className="mt-6 flex gap-2.5">
-              {SOCIAL_LINKS.map((social) => (
-                <a
-                  key={social.label}
-                  href={SOCIAL_URLS[social.label] ?? "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="grid size-10 place-items-center rounded-full border border-white/10 text-xs font-semibold text-neutral-400 transition-all hover:border-white hover:bg-white hover:text-neutral-900"
-                >
-                  {social.label.slice(0, 1)}
-                </a>
-              ))}
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICONS[social.label];
+
+                return (
+                  <a
+                    key={social.label}
+                    href={SOCIAL_URLS[social.label] ?? "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className={`grid size-10 place-items-center rounded-full border border-white/10 text-neutral-400 transition-all ${SOCIAL_HOVER_STYLES[social.label] ?? "hover:border-white hover:bg-white hover:text-neutral-900"}`}
+                  >
+                    {Icon ? (
+                      <Icon className="size-4" />
+                    ) : (
+                      social.label.slice(0, 1)
+                    )}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -116,6 +141,28 @@ export default function Footer() {
                   <MessageCircle className="size-4 text-[#25d366]" />
                   WhatsApp - chat with us
                 </a>
+              </li>
+              <li>
+                <div className="group flex items-start gap-2.5 text-neutral-400">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-neutral-600 group-hover:text-white" />
+                  <span className="leading-relaxed">
+                    <span className="mb-1 block font-medium text-neutral-200">
+                      India Office
+                    </span>
+                    {SITE.indiaOfficeAddress}
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className="group flex items-start gap-2.5 text-neutral-400">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-neutral-600 group-hover:text-white" />
+                  <span className="leading-relaxed">
+                    <span className="mb-1 block font-medium text-neutral-200">
+                      USA Office
+                    </span>
+                    {SITE.usaOfficeAddress}
+                  </span>
+                </div>
               </li>
               <li>
                 <a

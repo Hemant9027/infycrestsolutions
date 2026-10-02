@@ -20,6 +20,8 @@ export const SITE = {
   hrEmail: "hr@infycrestsolutions.com",
   phoneDisplay: "+91 9027152962",
   phoneHref: "tel:+919027152962",
+  indiaOfficeAddress: "Doon IT Park, Dehradun, Uttarakhand, 248001",
+  usaOfficeAddress: "651 N Broad St, Suite 201, New Castle, DE, 19709, USA",
   whatsappNumber: "918272820892",
   defaultWhatsAppMessage:
     "Hi InfyCrest Solutions, I'm interested in building a website.",
