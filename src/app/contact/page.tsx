@@ -124,7 +124,7 @@ export default function ContactPage() {
                   Tell us about the project.
                 </h2>
                 <p className="mt-3 max-w-lg text-sm leading-6 text-neutral-500">
-                  A few details are enough. We&apos;ll respond within 24 hours.
+                  A few details are enough. We&apos;ll respond within 12 hours.
                 </p>
               </div>
               <ContactForm />
