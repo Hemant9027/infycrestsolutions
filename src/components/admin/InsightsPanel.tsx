@@ -94,12 +94,11 @@ function Panel({
 
 export default function InsightsPanel() {
   const [period, setPeriod] = useState("today");
-  const [website, setWebsite] = useState("main");
   const [data, setData] = useState<Insights | null>(null);
   const [loading, setLoading] = useState(true);
   async function refresh() {
     setLoading(true);
-    const response = await fetch(`/api/admin/analytics?period=${period}&website=${website}`, {
+    const response = await fetch(`/api/admin/analytics?period=${period}`, {
       cache: "no-store",
     });
     if (response.ok) setData(await response.json());
@@ -107,7 +106,7 @@ export default function InsightsPanel() {
   }
   useEffect(() => {
     let active = true;
-    fetch(`/api/admin/analytics?period=${period}&website=${website}`, { cache: "no-store" })
+    fetch(`/api/admin/analytics?period=${period}`, { cache: "no-store" })
       .then(async (response) => {
         if (active && response.ok) setData(await response.json());
       })
@@ -118,7 +117,7 @@ export default function InsightsPanel() {
     return () => {
       active = false;
     };
-  }, [period, website]);
+  }, [period]);
 
   if (loading && !data)
     return (
@@ -150,17 +149,7 @@ export default function InsightsPanel() {
             Real website events and anonymous sessions only.
           </p>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <select
-            aria-label="Website filter"
-            value={website}
-            onChange={(event) => setWebsite(event.target.value)}
-            className="h-10 rounded-full border border-neutral-200 bg-white px-4 text-sm"
-          >
-            <option value="main">Main Website</option>
-            <option value="all-demos">All Demos</option>
-            <option value="all-sites">All Websites</option>
-          </select>
+        <div className="flex items-center gap-2">
           <select
             aria-label="Date range"
             value={period}
