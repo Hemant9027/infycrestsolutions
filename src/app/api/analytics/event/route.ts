@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { recordAnalyticsEvent, safeSessionId, sourceFromAttribution } from "@/lib/analytics";
+import { getDemoContextFromHostname, getHostnameFromRequest } from "@/lib/analytics-host";
 import { ANALYTICS_EVENTS, type AnalyticsEventName } from "@/lib/analytics-events";
 
 export const runtime = "nodejs";
@@ -18,13 +19,19 @@ export async function POST(request: Request) {
     }
     const referrer = text(body.referrer, 500);
     const utmSource = text(body.utmSource, 120);
+    const hostname = getHostnameFromRequest(request.headers);
+    const siteContext = getDemoContextFromHostname(hostname);
     const metadata = body.metadata && typeof body.metadata === "object" && !Array.isArray(body.metadata)
       ? Object.fromEntries(Object.entries(body.metadata).slice(0, 8).map(([key, value]) => [text(key, 40), text(value, 160)]))
       : {};
     await recordAnalyticsEvent({
       anonymousSessionId: safeSessionId(body.anonymousSessionId),
+      anonymousVisitorId: text(body.anonymousVisitorId, 80) || safeSessionId(body.anonymousSessionId),
       eventName: eventName as AnalyticsEventName,
       pagePath,
+      hostname: siteContext.hostname,
+      demoId: siteContext.demoId,
+      siteType: siteContext.siteType,
       referrer,
       source: sourceFromAttribution(referrer, utmSource),
       medium: text(body.utmMedium, 120),

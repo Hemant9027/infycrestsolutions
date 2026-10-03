@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { whatsappUrl } from "@/config/site";
 
 const STATS = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "24h", label: "Response" },
-  { value: "India-wide", label: "" },
-  { value: "Custom", label: "Solutions" },
+  { value: "Custom", label: "Website builds" },
+  { value: "Booking", label: "flows" },
+  { value: "Hospitality", label: "specialists" },
+  { value: "Mobile-first", label: "experience" },
 ];
 
 function FloatChip({
@@ -36,17 +35,17 @@ function Hero() {
     <section id="top" className="relative overflow-hidden bg-white">
       <FloatChip className="left-[6%] top-[38%]" rotate={-6}>
         <span className="size-1.5 rounded-full bg-emerald-500" />
-        LaunchKit — Live demo ready
+        Hospitality website design
       </FloatChip>
       <FloatChip className="right-[5%] top-[30%]" rotate={5} slow>
-        Landing pages $999
+        Direct booking systems
       </FloatChip>
       <FloatChip className="bottom-[24%] left-[10%]" rotate={4} slow>
-        Admin panel included
+        E-commerce & software
       </FloatChip>
       <FloatChip className="bottom-[30%] right-[9%]" rotate={-4}>
         <span className="size-1.5 rounded-full bg-neutral-900" />
-        WhatsApp ordering flow
+        WhatsApp enquiry flow
       </FloatChip>
 
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center px-5 pb-16 pt-36 text-center sm:px-8 sm:pt-44 md:pb-24">
@@ -59,30 +58,24 @@ function Hero() {
 
         <Reveal delay={120}>
           <h1 className="mt-8 max-w-5xl text-[clamp(2.7rem,7vw,6.1rem)] font-semibold leading-[1.01] tracking-[-0.042em] text-neutral-900">
-            <span className="block">We build the digital systems</span>
-            <span className="hero-script block">
-              your business needs to grow.
-            </span>
+            Websites & Digital Systems Built to Generate More Business
           </h1>
         </Reveal>
 
         <Reveal delay={240}>
           <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-neutral-500 sm:text-lg">
-            From websites and booking flows to software, automation and internal
-            operations, we turn business needs into faster paths to enquiries,
-            orders and better customer experiences.
+            Modern websites, booking systems, e-commerce and custom software for
+            businesses that want better digital experiences and more enquiries.
           </p>
         </Reveal>
 
         <Reveal delay={340}>
           <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
             <Link
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="group flex h-[52px] items-center gap-2.5 rounded-full bg-neutral-900 px-8 text-[15px] font-semibold text-white transition-all duration-300 hover:bg-neutral-800 hover:shadow-[0_18px_40px_-14px_rgb(10_10_10/0.55)]"
             >
-              Start a Project
+              Get a Free Website Concept
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <Link
@@ -93,6 +86,10 @@ function Hero() {
               <ArrowDown className="size-4 transition-transform duration-300 group-hover:translate-y-0.5" />
             </Link>
           </div>
+          <p className="mt-4 text-sm text-neutral-500">
+            Share your current website or basic business details and we&apos;ll
+            create a personalized concept for you.
+          </p>
         </Reveal>
       </div>
 

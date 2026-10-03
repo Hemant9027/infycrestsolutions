@@ -7,24 +7,24 @@
 export const SITE = {
   name: "InfyCrest Solutions",
   shortName: "InfyCrest",
-  tagline: "Websites, software and automation for ambitious businesses.",
+  tagline: "Websites, booking systems and digital solutions for hospitality and growing businesses.",
   year: 2026,
   url: "https://www.infycrestsolutions.com",
-  title: "InfyCrest Solutions — Websites, Software & Digital Solutions",
+  title: "InfyCrest Solutions — Website Design, Booking Systems & Digital Solutions",
   description:
-    "InfyCrest Solutions builds high-performance websites, e-commerce experiences, custom software and business automation for growing businesses.",
-  email: "contact@infycrestsolutions.com",
-  emailHref: "mailto:contact@infycrestsolutions.com",
+    "InfyCrest Solutions creates modern websites, booking systems, e-commerce experiences and business software for hospitality and growth-focused businesses.",
+  email: "hemant@infycrestsolutions.com",
+  emailHref: "mailto:hemant@infycrestsolutions.com",
   careersEmail: "careers@infycrestsolutions.com",
   careersEmailHref: "mailto:careers@infycrestsolutions.com",
   hrEmail: "hr@infycrestsolutions.com",
-  phoneDisplay: "+91 9027152962",
-  phoneHref: "tel:+919027152962",
+  phoneDisplay: "+91 8272820892",
+  phoneHref: "tel:+918272820892",
   indiaOfficeAddress: "Doon IT Park, Dehradun, Uttarakhand, 248001",
   usaOfficeAddress: "651 N Broad St, Suite 201, New Castle, DE, 19709, USA",
   whatsappNumber: "918272820892",
   defaultWhatsAppMessage:
-    "Hi InfyCrest Solutions, I'm interested in building a website.",
+    "Hi InfyCrest Solutions, I'm interested in a free website concept for my business.",
 } as const;
 
 /** Build a wa.me deep link with a pre-filled, URL-encoded message. */

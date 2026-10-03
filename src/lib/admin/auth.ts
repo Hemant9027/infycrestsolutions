@@ -54,5 +54,15 @@ export async function authenticateAdmin(username: string, password: string) {
 }
 
 export function sessionCookie(username: string) {
-  return { name: ADMIN_COOKIE, value: tokenFor(username), httpOnly: true, sameSite: "lax" as const, secure: process.env.NODE_ENV === "production", path: "/", maxAge: SESSION_MAX_AGE };
+  const prodDomain = process.env.NODE_ENV === "production" ? ".infycrestsolutions.com" : undefined;
+  return {
+    name: ADMIN_COOKIE,
+    value: tokenFor(username),
+    httpOnly: true,
+    sameSite: "lax" as const,
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    maxAge: SESSION_MAX_AGE,
+    domain: prodDomain,
+  };
 }

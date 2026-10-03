@@ -9,6 +9,7 @@ import {
 
 const CONSENT_KEY = "infycrest_cookie_consent";
 const SESSION_KEY = "infycrest_analytics_session";
+const VISITOR_KEY = "infycrest_analytics_visitor";
 
 function allowed() {
   try {
@@ -26,6 +27,14 @@ function sessionId() {
   if (existing) return existing;
   const value = crypto.randomUUID();
   localStorage.setItem(SESSION_KEY, value);
+  return value;
+}
+
+function visitorId() {
+  const existing = localStorage.getItem(VISITOR_KEY);
+  if (existing) return existing;
+  const value = crypto.randomUUID();
+  localStorage.setItem(VISITOR_KEY, value);
   return value;
 }
 
@@ -67,6 +76,8 @@ export function trackEvent(
   const url = new URL(window.location.href);
   const payload = JSON.stringify({
     anonymousSessionId: sessionId(),
+    anonymousVisitorId: visitorId(),
+    hostname: window.location.hostname,
     eventName,
     pagePath: window.location.pathname,
     referrer: document.referrer,
@@ -103,7 +114,12 @@ export default function AnalyticsTracker() {
     pageView();
     if (pathname.startsWith("/blog")) trackEvent(ANALYTICS_EVENTS.BLOG_VIEW);
     const onClick = (event: MouseEvent) => {
-      const link = (event.target as HTMLElement).closest("a");
+      const target = event.target as HTMLElement | null;
+      const link = target?.closest("a");
+      const form = target?.closest("form");
+      if (form) {
+        trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_START);
+      }
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
       if (href.startsWith("https://wa.me") || href.includes("whatsapp"))
@@ -112,17 +128,35 @@ export default function AnalyticsTracker() {
         trackEvent(ANALYTICS_EVENTS.EMAIL_CLICK);
       else if (href.startsWith("tel:"))
         trackEvent(ANALYTICS_EVENTS.PHONE_CLICK);
+      else if (/book now|reserve|check availability|book a stay/i.test(link.textContent ?? "") || href.includes("booking") || href.includes("reserve"))
+        trackEvent(ANALYTICS_EVENTS.BOOK_NOW_CLICK);
       else if (href.startsWith("http"))
         trackEvent(ANALYTICS_EVENTS.EXTERNAL_LINK_CLICK, {
           host: new URL(href).hostname,
         });
-      else if (/start.?a.?project/i.test(link.textContent ?? ""))
+      else if (/start.?a.?project|request my free concept|get a free website concept/i.test(link.textContent ?? ""))
         trackEvent(ANALYTICS_EVENTS.START_PROJECT_CLICK);
     };
+    const handleScroll = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      if (height <= 0) return;
+      const progress = window.scrollY / height;
+      if (progress >= 0.5 && !sessionStorage.getItem("infycrest_scroll_50")) {
+        sessionStorage.setItem("infycrest_scroll_50", "true");
+        trackEvent(ANALYTICS_EVENTS.SCROLL_50);
+      }
+      if (progress >= 0.9 && !sessionStorage.getItem("infycrest_scroll_90")) {
+        sessionStorage.setItem("infycrest_scroll_90", "true");
+        trackEvent(ANALYTICS_EVENTS.SCROLL_90);
+      }
+    };
     document.addEventListener("click", onClick);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("infycrest:consent-updated", pageView);
+    handleScroll();
     return () => {
       document.removeEventListener("click", onClick);
+      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("infycrest:consent-updated", pageView);
     };
   }, [pathname]);

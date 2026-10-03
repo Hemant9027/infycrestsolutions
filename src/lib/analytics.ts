@@ -8,6 +8,9 @@ type AnalyticsSession = {
   lastActiveAt: Date;
   currentPage: string;
   landingPage: string;
+  hostname: string;
+  demoId?: string;
+  siteType: "main" | "demo";
   referrer: string;
   source: string;
   medium: string;
@@ -16,6 +19,7 @@ type AnalyticsSession = {
   browser: string;
   os: string;
   country: string;
+  visitorId?: string;
   pageCount: number;
   engaged: boolean;
 };
@@ -26,6 +30,8 @@ const CONVERSION_EVENTS = new Set<AnalyticsEventName>([
   ANALYTICS_EVENTS.PHONE_CLICK,
   ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT,
   ANALYTICS_EVENTS.START_PROJECT_CLICK,
+  ANALYTICS_EVENTS.BOOK_NOW_CLICK,
+  ANALYTICS_EVENTS.EXTERNAL_BOOKING_CLICK,
   ANALYTICS_EVENTS.ESTIMATE_COMPLETE,
   ANALYTICS_EVENTS.TEMPLATE_CUSTOMIZE_CLICK,
   ANALYTICS_EVENTS.TEMPLATE_INQUIRY_SUBMIT,
@@ -57,8 +63,12 @@ export function safeSessionId(value: unknown) {
 
 export async function recordAnalyticsEvent(input: {
   anonymousSessionId: string;
+  anonymousVisitorId: string;
   eventName: AnalyticsEventName;
   pagePath: string;
+  hostname?: string;
+  demoId?: string | null;
+  siteType?: "main" | "demo";
   referrer?: string;
   source?: string;
   medium?: string;
@@ -75,15 +85,26 @@ export async function recordAnalyticsEvent(input: {
   const session = mongoDb.collection<AnalyticsSession>("analytics_sessions");
   const events = mongoDb.collection<Record<string, unknown>>("analytics_events");
   const existing = await session.findOne<{ _id: string }>({ _id: input.anonymousSessionId });
+  const hostname = input.hostname ?? "infycrestsolutions.com";
+  const demoId = input.demoId || undefined;
+  const siteType = input.siteType ?? "main";
   const update = {
     $set: {
       lastActiveAt: now,
       currentPage: input.pagePath,
+      hostname,
+      demoId,
+      siteType,
+      visitorId: input.anonymousVisitorId,
     },
     $setOnInsert: {
       _id: input.anonymousSessionId,
       startedAt: now,
       landingPage: input.pagePath,
+      hostname,
+      demoId,
+      siteType,
+      visitorId: input.anonymousVisitorId,
       referrer: input.referrer ?? "",
       source: input.source ?? "Direct / Unknown",
       medium: input.medium ?? "",
@@ -99,6 +120,10 @@ export async function recordAnalyticsEvent(input: {
   await session.updateOne({ _id: input.anonymousSessionId }, update, { upsert: true });
   await events.insertOne({
     sessionId: input.anonymousSessionId,
+    visitorId: input.anonymousVisitorId,
+    hostname,
+    demoId,
+    siteType,
     eventName: input.eventName,
     pagePath: input.pagePath,
     timestamp: now,
@@ -111,6 +136,10 @@ export async function recordAnalyticsEvent(input: {
   if (!existing && input.eventName !== ANALYTICS_EVENTS.SESSION_START) {
     await events.insertOne({
       sessionId: input.anonymousSessionId,
+      visitorId: input.anonymousVisitorId,
+      hostname,
+      demoId,
+      siteType,
       eventName: ANALYTICS_EVENTS.SESSION_START,
       pagePath: input.pagePath,
       timestamp: now,

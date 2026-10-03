@@ -18,13 +18,23 @@ const dateStart = (period: string) => {
 
 export async function GET(request: Request) {
   if (!(await currentAdmin())) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  const period = new URL(request.url).searchParams.get("period") ?? "today";
+  const url = new URL(request.url);
+  const period = url.searchParams.get("period") ?? "today";
+  const website = url.searchParams.get("website") ?? "main";
+  const hostname = url.searchParams.get("hostname") ?? "";
   const start = dateStart(period);
   const end = period === "yesterday" ? new Date(start.getTime() + 24 * 60 * 60 * 1000 - 1) : new Date();
   const sessions = mongoDb.collection("analytics_sessions");
   const events = mongoDb.collection("analytics_events");
-  const sessionFilter = { startedAt: { $gte: start, $lte: end } };
-  const eventFilter = { timestamp: { $gte: start, $lte: end } };
+  const siteFilter = website === "all-demos"
+    ? { siteType: "demo" }
+    : website === "all-sites"
+      ? {}
+      : website === "main"
+        ? { siteType: "main" }
+        : { hostname };
+  const sessionFilter = { ...siteFilter, startedAt: { $gte: start, $lte: end } };
+  const eventFilter = { ...siteFilter, timestamp: { $gte: start, $lte: end } };
   const [sessionCount, newVisitors, pageViews, leads, engagedSessions, sources, pages, devices, countries, campaigns, timeline, live, recent] = await Promise.all([
     sessions.countDocuments(sessionFilter),
     sessions.countDocuments({ ...sessionFilter, $expr: { $eq: ["$startedAt", "$lastActiveAt"] } }),
@@ -42,6 +52,7 @@ export async function GET(request: Request) {
   ]);
   return NextResponse.json({
     period,
+    website,
     lastUpdated: new Date().toISOString(),
     hasData: sessionCount > 0 || pageViews > 0,
     kpis: { visitors: sessionCount, newVisitors, sessions: sessionCount, pageViews, engagedSessions, leads, conversionRate: sessionCount ? Math.round((leads / sessionCount) * 10000) / 100 : 0 },
