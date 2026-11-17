@@ -64,7 +64,7 @@ import {
 /*                                TYPES & DATA                                */
 /* -------------------------------------------------------------------------- */
 
-const villaImg = (num: number) => `/villa/${num}.jpg`;
+const villaImg = (num: number) => `/villa/${num}.webp`;
 
 export type CustomerHero = {
   eyebrow?: string;

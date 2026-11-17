@@ -71,7 +71,7 @@ const NAV_LINKS = [
 
 // Images 9 to 28 assigned to the gallery
 const GALLERY = Array.from({ length: 20 }, (_, i) => ({
-  src: `/villa/${i + 9}.jpg`,
+  src: `/villa/${i + 9}.webp`,
   caption: `Villa View ${i + 1}`,
   alt: `Beautiful villa view ${i + 1}`,
 }));
@@ -452,7 +452,7 @@ function Hero() {
         className="absolute inset-0"
       >
         <Image
-          src="/villa/1.jpg"
+          src="/villa/1.webp"
           alt="Hero background"
           fill
           priority
@@ -573,7 +573,7 @@ function About() {
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]">
               <Image
-                src="/villa/2.jpg"
+                src="/villa/2.webp"
                 alt="Veranda"
                 fill
                 sizes="(min-width: 1024px) 48vw, 100vw"
@@ -588,7 +588,7 @@ function About() {
             <div className="rotate-3 rounded-2xl bg-white p-2.5 shadow-[0_30px_60px_-25px_rgba(15,35,30,0.45)]">
               <div className="relative aspect-square overflow-hidden rounded-xl">
                 <Image
-                  src="/villa/3.jpg"
+                  src="/villa/3.webp"
                   alt="Garden"
                   fill
                   sizes="224px"
@@ -680,7 +680,7 @@ function Accommodation() {
             <figure className="group relative">
               <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem]">
                 <Image
-                  src="/villa/4.jpg"
+                  src="/villa/4.webp"
                   alt="Accommodation Room"
                   fill
                   sizes="(min-width: 1024px) 58vw, 100vw"
@@ -797,7 +797,7 @@ function IslandLife() {
             <figure className="group relative">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] sm:aspect-[5/5]">
                 <Image
-                  src="/villa/5.jpg"
+                  src="/villa/5.webp"
                   alt="Island Life"
                   fill
                   sizes="(min-width: 1024px) 48vw, 100vw"
@@ -844,7 +844,7 @@ function Town() {
           <Reveal>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem]">
               <Image
-                src="/villa/6.jpg"
+                src="/villa/6.webp"
                 alt="Town View"
                 fill
                 sizes="(min-width: 1024px) 48vw, 100vw"
@@ -1127,7 +1127,7 @@ function LocationSection() {
           <Reveal delay={0.1}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] lg:aspect-auto lg:h-full lg:min-h-[30rem]">
               <Image
-                src="/villa/7.jpg"
+                src="/villa/7.webp"
                 alt="Location View"
                 fill
                 sizes="(min-width: 1024px) 56vw, 100vw"
@@ -1332,7 +1332,7 @@ function BookingCta() {
         className="absolute inset-0 scale-[1.15]"
       >
         <Image
-          src="/villa/8.jpg"
+          src="/villa/8.webp"
           alt="Golden sunset"
           fill
           sizes="100vw"

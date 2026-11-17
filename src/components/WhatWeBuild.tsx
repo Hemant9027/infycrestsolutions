@@ -1,9 +1,12 @@
 import {
   AppWindow,
   ArrowUpRight,
+  BriefcaseBusiness,
   CalendarCheck2,
   ChartNoAxesCombined,
   Code2,
+  Megaphone,
+  SearchCheck,
   ShoppingBag,
   Workflow,
 } from "lucide-react";
@@ -47,6 +50,24 @@ const SERVICES = [
     description:
       "Connect the tools you already use and reduce repetitive work.",
   },
+  {
+    icon: Megaphone,
+    title: "Social Media Handling",
+    description:
+      "Consistent social media management that keeps your brand active and engaging.",
+  },
+  {
+    icon: SearchCheck,
+    title: "SEO",
+    description:
+      "Search optimization that helps the right customers discover your business.",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Digital Services",
+    description:
+      "Practical digital solutions that help your business grow and operate better.",
+  },
 ];
 
 export default function WhatWeBuild() {
@@ -72,14 +93,14 @@ export default function WhatWeBuild() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-200 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 [perspective:1200px] sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service, index) => (
             <Reveal
               key={service.title}
               delay={(index % 3) * 80}
               className="h-full"
             >
-              <article className="group flex h-full flex-col bg-white p-6 transition-colors duration-300 hover:bg-neutral-50 sm:p-7">
+              <article className="group flex h-full [transform-style:preserve-3d] flex-col rounded-3xl border border-neutral-200 bg-white p-6 shadow-[0_18px_40px_-30px_rgba(10,10,10,0.3)] transition-[transform,box-shadow,background-color] duration-300 ease-out hover:[transform:translateY(-0.5rem)_rotateX(1deg)_rotateY(-2deg)] hover:bg-neutral-50 hover:shadow-[0_28px_55px_-25px_rgba(10,10,10,0.35)] sm:p-7">
                 <div className="flex items-center justify-between">
                   <span className="grid size-11 place-items-center rounded-2xl border border-neutral-200 bg-neutral-50 text-neutral-900 transition-transform duration-300 group-hover:-translate-y-1">
                     <service.icon className="size-5" strokeWidth={1.7} />

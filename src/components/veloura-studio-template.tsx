@@ -52,7 +52,7 @@ import {
 /* -------------------------------------------------------------------------- */
 
 // Helper to pull directly from your 1-31 local salon images
-const salonImg = (num: number) => `/salon/${num}.jpg`;
+const salonImg = (num: number) => `/salon/${num}.webp`;
 
 export type ServiceId =
   | "hair-design"

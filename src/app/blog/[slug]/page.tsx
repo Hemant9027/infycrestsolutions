@@ -146,7 +146,7 @@ export default async function BlogArticlePage({ params }: Props) {
             </p>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3 text-sm text-neutral-500">
               <Image
-                src="/hemant.jpeg"
+                src="/hemant.webp"
                 alt="Hemant Pundir"
                 width={40}
                 height={40}

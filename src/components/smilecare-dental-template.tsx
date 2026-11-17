@@ -52,8 +52,8 @@ import {
 /*                                TYPES & DATA                                */
 /* -------------------------------------------------------------------------- */
 
-const dentalImg = (num: number) => `/dental-clinic/${num}.jpg`;
-const docImg = (num: number) => `/dental-clinic/docter${num}.jpg`;
+const dentalImg = (num: number) => `/dental-clinic/${num}.webp`;
+const docImg = (num: number) => `/dental-clinic/docter${num}.webp`;
 
 export type CustomerHero = {
   eyebrow?: string;

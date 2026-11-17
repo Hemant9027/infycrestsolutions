@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   applicationName: SITE.name,
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.webp", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.webp", sizes: "32x32", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-touch-icon.webp",
   },
   keywords: [
     "InfyCrest Solutions",
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     title: SITE.title,
     description: SITE.description,
-    images: [{ url: "/previews/launchkit-main.jpg" }],
+    images: [{ url: "/previews/launchkit-main.webp" }],
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: SITE.title,
     description: SITE.description,
-    images: ["/previews/launchkit-main.jpg"],
+    images: ["/previews/launchkit-main.webp"],
   },
   robots: {
     index: true,

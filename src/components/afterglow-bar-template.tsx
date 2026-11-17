@@ -87,10 +87,10 @@ export type NewCustomer = {
   gallery?: CustomerGalleryItem[];
 };
 
-export const pubImg = (num: number) => `/Pub-Cocktail/${num}.jpg`;
+export const pubImg = (num: number) => `/Pub-Cocktail/${num}.webp`;
 
 const localPubImg = (value: unknown, fallback: number) =>
-  typeof value === "string" && /^\/Pub-Cocktail\/\d+\.jpg$/.test(value)
+  typeof value === "string" && /^\/Pub-Cocktail\/\d+\.webp$/.test(value)
     ? value
     : pubImg(fallback);
 

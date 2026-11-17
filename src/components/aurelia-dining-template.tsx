@@ -82,7 +82,7 @@ export type NewCustomer = {
 };
 
 // Maps to your public/restaurant/ 1-28 images
-export const restImg = (num: number) => `/restaurant/${num}.jpg`;
+export const restImg = (num: number) => `/restaurant/${num}.webp`;
 
 export const TIME_SLOTS = [
   "17:00",

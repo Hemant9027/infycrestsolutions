@@ -45,7 +45,7 @@ import {
 /* -------------------------------------------------------------------------- */
 
 // Deterministic image selector for 1 to 38 local photographer images
-const photoImg = (num: number) => `/photographer/${((num * 13) % 38) + 1}.jpg`;
+const photoImg = (num: number) => `/photographer/${((num * 13) % 38) + 1}.webp`;
 
 export type CustomerHero = {
   eyebrow?: string;

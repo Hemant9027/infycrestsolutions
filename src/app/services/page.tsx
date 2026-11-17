@@ -51,17 +51,29 @@ const SERVICES = [
       "Technical and on-page improvements that support better discoverability and clearer business messaging online.",
     href: "/seo",
   },
+  {
+    title: "Social Media Handling",
+    description:
+      "Consistent social media management that keeps your brand active, engaging and connected to its audience.",
+    href: "/contact",
+  },
+  {
+    title: "Digital Services",
+    description:
+      "Practical digital solutions that help your business grow, communicate better and operate more efficiently.",
+    href: "/contact",
+  },
 ];
 
 export const metadata: Metadata = {
   title: "Services | Website Design, Development & Digital Systems",
   description:
-    "Explore InfyCrest Solutions services for website design, web development, booking systems, e-commerce, custom software, automation and SEO.",
+    "Explore InfyCrest Solutions services for website design, web development, booking systems, e-commerce, custom software, automation, SEO, social media handling and digital services.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "Services | InfyCrest Solutions",
     description:
-      "Website design, web development, booking systems, e-commerce, custom software, automation and SEO for growth-focused businesses.",
+      "Website design, web development, booking systems, e-commerce, custom software, automation, SEO, social media handling and digital services for growth-focused businesses.",
     url: `${SITE.url}/services`,
     siteName: SITE.name,
     type: "website",

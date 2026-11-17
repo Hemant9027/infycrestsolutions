@@ -43,9 +43,9 @@ import {
 /*                                TYPES & DATA                                */
 /* -------------------------------------------------------------------------- */
 
-// Deterministic random image selector for 1.jpg to 37.jpg
+// Deterministic random image selector for 1.webp to 37.webp
 const getBakeryImg = (index: number) =>
-  `/Bakery/${((index * 13) % 37) + 1}.jpg`;
+  `/Bakery/${((index * 13) % 37) + 1}.webp`;
 
 export type BakeCategory = "morning" | "loaves" | "cakes" | "catering" | "all";
 

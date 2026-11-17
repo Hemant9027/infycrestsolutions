@@ -44,7 +44,7 @@ import {
 /*                                TYPES & DATA                                */
 /* -------------------------------------------------------------------------- */
 
-const restImg = (num: number) => `/restaurant/${num}.jpg`;
+const restImg = (num: number) => `/restaurant/${num}.webp`;
 
 export type CustomerHero = {
   eyebrow?: string;

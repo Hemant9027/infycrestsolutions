@@ -23,7 +23,7 @@ import type { NewCustomer } from "@/lib/new-customers";
 // --- HELPERS ---
 const text = (value: unknown, fallback = "") =>
   typeof value === "string" && value ? value : fallback;
-const restImg = (num: number) => `/restaurant/${num}.jpg`;
+const restImg = (num: number) => `/restaurant/${num}.webp`;
 
 // --- ANIMATION COMPONENT ---
 function Reveal({

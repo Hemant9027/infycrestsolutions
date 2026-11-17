@@ -6,7 +6,7 @@ import ProductsGrid from "@/components/ProductsGrid";
 type Catalog = "ideas" | "real-world";
 
 export default function ProjectCatalogSwitcher() {
-  const [catalog, setCatalog] = useState<Catalog>("ideas");
+  const [catalog, setCatalog] = useState<Catalog>("real-world");
 
   return (
     <>

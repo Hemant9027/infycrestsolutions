@@ -111,7 +111,7 @@ const COLORS = {
   coral: "#e58e63",
 };
 
-export const restImg = (num: number) => `/restaurant/${num}.jpg`;
+export const restImg = (num: number) => `/restaurant/${num}.webp`;
 
 export const demoVillaCustomer: NewCustomer = {
   slug: "blue-hole-villas",

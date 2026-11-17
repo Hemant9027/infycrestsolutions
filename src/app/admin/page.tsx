@@ -895,7 +895,7 @@ export default function AdminPage() {
                   className={`${field} sm:col-span-2`}
                   value={productImage}
                   onChange={(event) => setProductImage(event.target.value)}
-                  placeholder="Thumbnail URL, e.g. /dental-clinic/1.jpg"
+                  placeholder="Thumbnail URL, e.g. /dental-clinic/1.webp"
                 />
                 <label className="flex items-center gap-2 text-sm">
                   <input

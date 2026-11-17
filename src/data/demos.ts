@@ -47,7 +47,7 @@ export const DEMOS: Demo[] = [
       "A polished, conversion-ready launch package for businesses that refuse to wait.",
     description:
       "A polished, conversion-ready website package for businesses that need a strong online launch without the wait. Three sharp pages, an integrated admin panel and a design system that already feels like you.",
-    thumbnail: "/previews/launchkit-main.jpg",
+    thumbnail: "/previews/launchkit-main.webp",
     previewUrl: "/demo/launchkit",
     technologies: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL"],
     priceLabel: "Custom quote",
@@ -68,7 +68,7 @@ export const DEMOS: Demo[] = [
     tagline: "Appointments, treatments and trust — wrapped in a calm, clinical design.",
     description:
       "A reassuring clinic website with treatment pages, a doctor profile, smile gallery and one-tap appointment booking built for patients on phones.",
-    thumbnail: "/previews/dental-clinic.jpg",
+    thumbnail: "/previews/dental-clinic.webp",
     previewUrl: "/demo/dental-clinic",
     technologies: ["Next.js", "React", "Tailwind CSS", "Supabase"],
     priceLabel: "₹999",
@@ -89,7 +89,7 @@ export const DEMOS: Demo[] = [
     tagline: "Departments, doctors and emergency info presented with total clarity.",
     description:
       "A structured hospital web presence with department directories, doctor listings, emergency contact prominence and patient-first navigation.",
-    thumbnail: "/previews/hospital.jpg",
+    thumbnail: "/previews/hospital.webp",
     previewUrl: "/demo/hospital",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
     priceLabel: "₹999",
@@ -110,7 +110,7 @@ export const DEMOS: Demo[] = [
     tagline: "Programs, results and booking — a personal brand that converts.",
     description:
       "A bold one-person-brand site with training programs, transformation stories, pricing and direct booking so clients commit before the first call.",
-    thumbnail: "/previews/personal-trainer.jpg",
+    thumbnail: "/previews/personal-trainer.webp",
     previewUrl: "/demo/personal-trainer",
     technologies: ["Next.js", "React", "Tailwind CSS", "Firebase"],
     priceLabel: "₹999",
@@ -131,7 +131,7 @@ export const DEMOS: Demo[] = [
     tagline: "Memberships, schedules and facilities in one high-energy page.",
     description:
       "A high-impact gym site with membership pricing, class schedules, trainer highlights and join-now flows tuned for walk-in conversions.",
-    thumbnail: "/previews/gym.jpg",
+    thumbnail: "/previews/gym.webp",
     previewUrl: "/demo/gym",
     technologies: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
     priceLabel: "₹999",
@@ -152,7 +152,7 @@ export const DEMOS: Demo[] = [
     tagline: "Services, stylists and instant booking with a soft luxury feel.",
     description:
       "An elegant salon presence with a service menu, stylist profiles, look-book gallery and frictionless booking that fills the calendar.",
-    thumbnail: "/previews/salon.jpg",
+    thumbnail: "/previews/salon.webp",
     previewUrl: "/demo/salon",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     priceLabel: "₹999",
@@ -173,7 +173,7 @@ export const DEMOS: Demo[] = [
     tagline: "A delivery-first menu experience built to drive direct orders.",
     description:
       "A mouth-watering, delivery-first site showcasing the menu, combo deals and direct ordering that cuts aggregator commissions.",
-    thumbnail: "/previews/cloud-kitchen.jpg",
+    thumbnail: "/previews/cloud-kitchen.webp",
     previewUrl: "/demo/cloud-kitchen",
     technologies: ["Next.js", "React", "Tailwind CSS", "Firebase"],
     priceLabel: "₹999",
@@ -194,7 +194,7 @@ export const DEMOS: Demo[] = [
     tagline: "Cakes, bakes and custom orders in a warm editorial layout.",
     description:
       "A warm, editorial bakery site with a product showcase, custom-cake enquiry flow and daily specials that keep regulars coming back.",
-    thumbnail: "/previews/bakery.jpg",
+    thumbnail: "/previews/bakery.webp",
     previewUrl: "/demo/bakery",
     technologies: ["Next.js", "React", "Tailwind CSS", "PostgreSQL"],
     priceLabel: "₹999",
@@ -215,7 +215,7 @@ export const DEMOS: Demo[] = [
     tagline: "Menu, ambience and location — a cafe site that feels like the place.",
     description:
       "A minimal cafe presence with menu highlights, ambience gallery, events strip and maps integration so first visits happen sooner.",
-    thumbnail: "/previews/cafe.jpg",
+    thumbnail: "/previews/cafe.webp",
     previewUrl: "/demo/cafe",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     priceLabel: "₹999",
@@ -236,7 +236,7 @@ export const DEMOS: Demo[] = [
     tagline: "A fine-dining first impression with reservations built in.",
     description:
       "A dark, editorial restaurant experience with tasting menus, reservation requests, chef notes and a gallery that sells the evening.",
-    thumbnail: "/previews/restaurant.jpg",
+    thumbnail: "/previews/restaurant.webp",
     previewUrl: "/demo/restaurant",
     technologies: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
     priceLabel: "₹999",
@@ -257,7 +257,7 @@ export const DEMOS: Demo[] = [
     tagline: "A refined inn experience with rooms, amenities and direct enquiries.",
     description:
       "A warm, editorial hospitality website for Hibiscus Inn with accommodation details, guest experiences, gallery moments and direct booking enquiries.",
-    thumbnail: "/previews/restaurant.jpg",
+    thumbnail: "/previews/restaurant.webp",
     previewUrl: "/demo/hibiscuss-inn",
     liveUrl:
       process.env.NEXT_PUBLIC_HIBISCUS_INN_URL ?? "http://localhost:3001",

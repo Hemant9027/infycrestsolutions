@@ -52,8 +52,8 @@ import {
 /*                                TYPES & DATA                                */
 /* -------------------------------------------------------------------------- */
 
-const hospImg = (num: number) => `/hospital/${num}.jpg`;
-const docImg = (num: number) => `/hospital/docter${num}.jpg`;
+const hospImg = (num: number) => `/hospital/${num}.webp`;
+const docImg = (num: number) => `/hospital/docter${num}.webp`;
 
 export type Department = {
   id: number;

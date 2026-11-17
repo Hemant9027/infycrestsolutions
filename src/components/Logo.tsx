@@ -5,7 +5,7 @@ import Image from "next/image";
 export function CrestMark({ className }: { className?: string }) {
   return (
     <Image
-      src="/logo.png"
+      src="/logo.webp"
       alt=""
       width={40}
       height={40}

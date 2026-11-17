@@ -48,6 +48,29 @@ const reviewPools: Record<string, string[]> = {
   ],
 };
 
+const socialMediaProject: Product = {
+  name: "Social Media Handling",
+  slug: "social-media-handling",
+  category: "Social Media",
+  projectType: "real-world",
+  description:
+    "Social media handling to build a consistent and engaging online presence.",
+  shortDescription:
+    "Social media handling to build a consistent and engaging online presence.",
+  imageUrl: "/Featured-Work-5.webp",
+  liveUrl: "https://www.instagram.com/th.jayant_rana/",
+  technologies: [],
+  features: [],
+  visible: true,
+  featured: true,
+  testimonial:
+    "Great experience working with InfyCrest Solutions! They handled my social media professionally, understood my requirements, and helped improve my online presence. Really happy with their creativity, communication, and overall work.",
+  rating: 5,
+  clientName: "Jayant Rana",
+  clientRole: "Owner",
+  displayOrder: 3,
+};
+
 function getReview(product: Product) {
   const category = product.category.toLowerCase();
   const poolKey =
@@ -130,7 +153,14 @@ export default function ProductsGrid({
         );
         if (response.ok) {
           const data = await response.json();
-          setProducts(data);
+          setProducts(
+            projectType === "real-world" &&
+              !data.some(
+                (product: Product) => product.slug === socialMediaProject.slug,
+              )
+              ? [...data, socialMediaProject]
+              : data,
+          );
         } else {
           setError(`Failed to fetch products: ${response.status}`);
         }

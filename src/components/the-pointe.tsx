@@ -45,57 +45,57 @@ import {
 } from "lucide-react";
 
 // ============================================================================
-// MEDIA MAPPING (1.jpg to 28.jpg)
+// MEDIA MAPPING (1.webp to 28.webp)
 // ============================================================================
 
 const media = {
-  hero: "/villa/1.jpg",
+  hero: "/villa/1.webp",
   about: {
-    pier: "/villa/2.jpg",
-    swing: "/villa/3.jpg",
-    balcony: "/villa/4.jpg",
+    pier: "/villa/2.webp",
+    swing: "/villa/3.webp",
+    balcony: "/villa/4.webp",
   },
-  stay: ["/villa/5.jpg", "/villa/6.jpg", "/villa/7.jpg"],
-  beach: "/villa/8.jpg",
+  stay: ["/villa/5.webp", "/villa/6.webp", "/villa/7.webp"],
+  beach: "/villa/8.webp",
   marina: {
-    main: "/villa/9.jpg",
+    main: "/villa/9.webp",
   },
   lounge: {
-    main: "/villa/10.jpg",
-    inset: "/villa/11.jpg",
+    main: "/villa/10.webp",
+    inset: "/villa/11.webp",
   },
   explore: [
     {
-      src: "/villa/12.jpg",
+      src: "/villa/12.webp",
       alt: "The Barrier Reef",
       title: "The Barrier Reef",
       body: "Andros guards the third-largest barrier reef on Earth — coral gardens and blue-water drop-offs humming with life.",
     },
     {
-      src: "/villa/13.jpg",
+      src: "/villa/13.webp",
       alt: "Flats & Bonefishing",
       title: "Flats & Bonefishing",
       body: "Silverside shallows stretch for miles. Anglers cross the world for these tides — South Andros is legendary on the flats.",
     },
     {
-      src: "/villa/14.jpg",
+      src: "/villa/14.webp",
       alt: "Blue Holes & Creeks",
       title: "Blue Holes & Creeks",
       body: "Inland and offshore, Andros holds one of the world's greatest concentrations of blue holes — windows into another world.",
     },
     {
-      src: "/villa/15.jpg",
+      src: "/villa/15.webp",
       alt: "Settlement Life",
       title: "Settlement Life",
       body: "Johnson Bay and Mars Bay keep Out Island time — friendly, quiet, and genuinely Bahamian.",
     },
   ],
   gallery: Array.from({ length: 12 }, (_, i) => ({
-    src: `/villa/${i + 16}.jpg`, // Uses 16.jpg through 27.jpg
+    src: `/villa/${i + 16}.webp`, // Uses 16.webp through 27.webp
     alt: `Villa Gallery Image ${i + 1}`,
     caption: `Villa View ${i + 1}`,
   })),
-  booking: "/villa/28.jpg",
+  booking: "/villa/28.webp",
 };
 
 // ============================================================================

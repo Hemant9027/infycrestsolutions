@@ -30,6 +30,8 @@ export interface Product {
   updatedAt?: Date;
 }
 
+const excludedRealWorldProductNames = ["website expertz"];
+
 export const products = () => mongoDb.collection<Product>("products");
 
 let productIndexesPromise: Promise<string> | undefined;
@@ -45,7 +47,16 @@ const getCachedProducts = unstable_cache(
   const collection = products();
   const filter: Filter<Product> = projectType
     ? projectType === "real-world"
-      ? { visible: true, $or: [{ projectType: "real-world" }, { projectType: { $exists: false } }] }
+      ? {
+          visible: true,
+          $or: [
+            { projectType: "real-world" },
+            { projectType: { $exists: false } },
+          ],
+          $nor: excludedRealWorldProductNames.map((name) => ({
+            name: { $regex: `^${name}$`, $options: "i" },
+          })),
+        }
       : { visible: true, projectType }
     : { visible: true };
     return collection

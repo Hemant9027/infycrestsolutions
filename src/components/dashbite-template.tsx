@@ -109,7 +109,7 @@ export type NewCustomer = {
   gallery?: CustomerGalleryItem[];
 };
 
-export const ckImg = (num: number) => `/Cloud-Kitchen/${num}.jpg`;
+export const ckImg = (num: number) => `/Cloud-Kitchen/${num}.webp`;
 
 export const demoDashBiteCustomer: NewCustomer = {
   slug: "dashbite-kitchen",

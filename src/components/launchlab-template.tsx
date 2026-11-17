@@ -42,7 +42,7 @@ import {
 /*                                TYPES & DATA                                */
 /* -------------------------------------------------------------------------- */
 
-const bizTechImg = (num: number) => `/Business-Tech/${num}.jpg`;
+const bizTechImg = (num: number) => `/Business-Tech/${num}.webp`;
 
 export type Project = {
   title: string;

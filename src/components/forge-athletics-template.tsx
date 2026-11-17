@@ -48,7 +48,7 @@ import Lenis from "lenis";
 /* -------------------------------------------------------------------------- */
 
 // Helper to pull directly from your 1-39 local images
-const gymImg = (num: number) => `/gym/${num}.jpg`;
+const gymImg = (num: number) => `/gym/${num}.webp`;
 
 export type GymClass = {
   id: number;

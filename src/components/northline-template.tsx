@@ -43,7 +43,7 @@ import {
 
 // Deterministic random image selector for 1 to 53 local Business-Tech images
 const bizTechImg = (num: number) =>
-  `/Business-Tech/${((num * 17) % 53) + 1}.jpg`;
+  `/Business-Tech/${((num * 17) % 53) + 1}.webp`;
 
 export type Project = {
   title: string;

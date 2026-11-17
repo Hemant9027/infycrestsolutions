@@ -14,7 +14,7 @@ const fallbackImage =
   "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600";
 const text = (value: unknown, fallback = "") =>
   typeof value === "string" && value ? value : fallback;
-const villaImg = (num: number) => `/villa/${num}.jpg`;
+const villaImg = (num: number) => `/villa/${num}.webp`;
 
 export function Navbar({
   customer,
