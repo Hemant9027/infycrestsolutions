@@ -1541,7 +1541,7 @@ export function Contact({ customer }: { customer: NewCustomer }) {
                   Thank you, {name.split(" ")[0] || "friend"}.
                 </h3>
                 <p className="mt-5 max-w-md text-base leading-relaxed text-[#2e2926]/60">
-                  Your enquiry is safely in our inbox. We reply within 48 hours
+                  Your enquiry is safely in our inbox. We typically respond within 24 hours.
                   — usually with too many references and one honest question
                   back.
                 </p>

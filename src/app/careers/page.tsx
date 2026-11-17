@@ -90,9 +90,8 @@ export default async function CareersPage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2">
             {[
-              { value: "50+", label: "Projects delivered" },
               { value: "Remote-first", label: "Flexible and collaborative" },
               { value: "India-wide", label: "Client reach" },
             ].map((stat) => (

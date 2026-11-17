@@ -58,7 +58,7 @@ export default function FeaturedWork() {
               : item.imageUrl;
             const projectUrl = isSocialMediaProject
               ? "https://www.instagram.com/th.jayant_rana/"
-              : `/products/${item.slug}`;
+              : `/work/${item.slug}`;
 
             return (
               <Reveal

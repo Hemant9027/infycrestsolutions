@@ -8,6 +8,8 @@ import AnalyticsTracker from "@/components/AnalyticsTracker";
 import ProductRouteScrollReset from "@/components/ProductRouteScrollReset";
 import NavigationProgress from "@/components/NavigationProgress";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import SiteStructuredData from "@/components/SiteStructuredData";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -61,6 +63,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export const viewport: Viewport = {
@@ -74,6 +79,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen overflow-x-clip bg-white font-sans text-neutral-900 antialiased">
         <NavigationProgress />
+        <SiteStructuredData />
+        <GoogleAnalytics />
         <ProductRouteScrollReset />
         <AnalyticsTracker />
         {children}

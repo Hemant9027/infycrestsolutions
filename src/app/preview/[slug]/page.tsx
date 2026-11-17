@@ -186,6 +186,7 @@ export async function generateMetadata({
     title: customer.SEO.title || customer.businessName,
     description: customer.SEO.description,
     keywords: customer.SEO.keywords,
+    robots: { index: false, follow: false },
     openGraph: {
       title: customer.SEO.title || customer.businessName,
       description: customer.SEO.description,

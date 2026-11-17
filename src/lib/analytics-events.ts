@@ -13,6 +13,9 @@ export const ANALYTICS_EVENTS = {
   PHONE_CLICK: "phone_click",
   CONTACT_FORM_START: "contact_form_start",
   CONTACT_FORM_SUBMIT: "contact_form_submit",
+  WEBSITE_CONCEPT_REQUEST: "website_concept_request",
+  DISCOVERY_CALL_BOOKING: "discovery_call_booking",
+  LIVE_PROJECT_CLICK: "live_project_click",
   ESTIMATE_COMPLETE: "estimate_complete",
   EXTERNAL_LINK_CLICK: "external_link_click",
 } as const;

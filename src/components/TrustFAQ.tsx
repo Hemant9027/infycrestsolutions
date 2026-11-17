@@ -29,8 +29,22 @@ const FAQS = [
 ] as const;
 
 export default function TrustFAQ() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+
   return (
     <section id="faq" className="scroll-mt-28 bg-neutral-50 py-20 sm:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
         <Reveal>
           <Eyebrow>11 / Frequently Asked Questions</Eyebrow>

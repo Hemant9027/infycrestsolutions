@@ -78,6 +78,7 @@ export function trackEvent(
     ...browserDetails(),
     metadata,
   });
+  window.gtag?.("event", eventName, metadata);
   if (navigator.sendBeacon)
     navigator.sendBeacon(
       "/api/analytics/event",
@@ -102,20 +103,35 @@ export default function AnalyticsTracker() {
     };
     pageView();
     if (pathname.startsWith("/blog")) trackEvent(ANALYTICS_EVENTS.BLOG_VIEW);
+    if (pathname.startsWith("/work/") || pathname.startsWith("/products/")) {
+      trackEvent(ANALYTICS_EVENTS.PROJECT_VIEW, {
+        projectPath: pathname,
+      });
+    }
     const onClick = (event: MouseEvent) => {
       const link = (event.target as HTMLElement).closest("a");
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
+      const analyticsEvent = link.dataset.analyticsEvent;
+      if (analyticsEvent === "live-project") {
+        trackEvent(ANALYTICS_EVENTS.LIVE_PROJECT_CLICK, {
+          host: new URL(href, window.location.href).hostname,
+        });
+        return;
+      }
       if (href.startsWith("https://wa.me") || href.includes("whatsapp"))
         trackEvent(ANALYTICS_EVENTS.WHATSAPP_CLICK);
       else if (href.startsWith("mailto:"))
         trackEvent(ANALYTICS_EVENTS.EMAIL_CLICK);
       else if (href.startsWith("tel:"))
         trackEvent(ANALYTICS_EVENTS.PHONE_CLICK);
-      else if (href.startsWith("http"))
-        trackEvent(ANALYTICS_EVENTS.EXTERNAL_LINK_CLICK, {
-          host: new URL(href).hostname,
-        });
+      else if (href.startsWith("http")) {
+        const externalUrl = new URL(href);
+        trackEvent(
+          ANALYTICS_EVENTS.EXTERNAL_LINK_CLICK,
+          { host: externalUrl.hostname },
+        );
+      }
       else if (/start.?a.?project/i.test(link.textContent ?? ""))
         trackEvent(ANALYTICS_EVENTS.START_PROJECT_CLICK);
     };

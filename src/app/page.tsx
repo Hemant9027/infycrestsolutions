@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedWork from "@/components/FeaturedWork";
+import ClientProof from "@/components/ClientProof";
 import WhatWeBuild from "@/components/WhatWeBuild";
 import BusinessOutcomes from "@/components/BusinessOutcomes";
 import TechMarquee from "@/components/TechMarquee";
@@ -79,6 +80,7 @@ export default function HomePage() {
         <Hero />
         <FreeWebsiteConcept />
         <FeaturedWork />
+        <ClientProof />
         <WhatWeBuild />
         <BusinessOutcomes />
         <Products />
@@ -94,3 +96,8 @@ export default function HomePage() {
     </>
   );
 }
+<script
+  src="http://localhost:3000/widget.js"
+  data-property-id="e277e2a8-e3ba-435a-9b47-a7eaf09e2bd4"
+  async
+></script>;

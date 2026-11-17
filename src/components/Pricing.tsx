@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Reveal, { Eyebrow } from "@/components/Reveal";
 import { PRICING_PLANS, type PricingPlan } from "@/data/pricing";
 import { whatsappUrl } from "@/config/site";
+import { RESPONSE_TIME_MESSAGE } from "@/config/content";
 
 function PlanCard({ plan }: { plan: PricingPlan }) {
   return (
@@ -108,7 +109,7 @@ function CustomCard() {
           </a>
         </div>
         <p className="relative mt-3 text-center text-[11px] text-neutral-500">
-          Average response time — under 24 hours
+          {RESPONSE_TIME_MESSAGE}
         </p>
       </div>
     </article>

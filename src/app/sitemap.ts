@@ -118,6 +118,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.7,
     });
+    addUrl(entries, `/work/${product.slug}`, {
+      lastModified: product.updatedAt || product.createdAt,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
   }
 
   // Visible product templates

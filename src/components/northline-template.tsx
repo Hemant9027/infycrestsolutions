@@ -1549,7 +1549,7 @@ export function Contact({ customer }: { customer: NewCustomer }) {
             </Reveal>
             <Reveal delay={0.14}>
               <p className="mt-8 max-w-md text-lg leading-relaxed text-white/60">
-                Tell us where you&apos;re headed — we&apos;ll reply within two
+                Tell us where you&apos;re headed — we typically respond within 24 hours.
                 business days with honest next steps, even if that&apos;s
                 pointing you somewhere else.
               </p>
@@ -1607,7 +1607,7 @@ export function Contact({ customer }: { customer: NewCustomer }) {
                     <p className="mt-5 max-w-md leading-relaxed text-white/60">
                       Thanks, {form.name.split(" ")[0] || "friend"} — we read
                       every brief personally and we&apos;ll get back to you
-                      within two business days.
+                      within 24 hours.
                     </p>
                     <button
                       type="button"

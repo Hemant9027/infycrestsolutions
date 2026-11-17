@@ -9,6 +9,9 @@ import {
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { RESPONSE_TIME_MESSAGE } from "@/config/content";
+import { ANALYTICS_EVENTS } from "@/lib/analytics-events";
+import { trackEvent } from "@/components/AnalyticsTracker";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -57,8 +60,11 @@ export default function ContactForm() {
         return;
       }
       setStatus("success");
+      trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT, {
+        form: "general-contact",
+      });
       setMessage(
-        data.message ?? "Thanks — we will be in touch within 24 hours.",
+        data.message ?? `Thanks — ${RESPONSE_TIME_MESSAGE}`,
       );
       setForm({ name: "", contact: "", businessType: "", requirements: "" });
     } catch {
@@ -145,7 +151,7 @@ export default function ContactForm() {
           )}
         </button>
         <p className="mt-3 min-h-5 text-xs text-neutral-400">
-          Tell us what you are building. We usually reply within 24 hours.
+          Tell us what you are building. {RESPONSE_TIME_MESSAGE}
         </p>
       </form>
 
